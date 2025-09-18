@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "author": "Solivellas Juan",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "micropython-20231227-v1.22.0", "flashSize": "8" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -123.3,
+      "left": -244.1,
+      "attrs": { "distance": "355" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -13.2,
+      "left": 195.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 90.35,
+      "left": 144,
+      "attrs": { "value": "70" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -128,
+      "left": 456.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -38.4,
+      "left": 124.8,
+      "attrs": { "text": "Alerta luminica NIVE BAJO" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": -124.8,
+      "left": -748.8,
+      "attrs": {
+        "text": "NOTA:\nSe considera que el sensor se encuentra ubicado a 400\n cm por encima del fondo del tanque y se emplea para \nmedir la distancia que hay entre el punto de montaje del \nsensor y el pelo del agua dentro de un tanque. Por lo tanto,\n el nivel de agua en el tanque sera 400 - la distancia medida\n por el sensor en cm"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 159.6,
+      "left": 215.4,
+      "attrs": { "color": "limegreen", "flip": "1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 195.95,
+      "left": 144,
+      "attrs": { "value": "70" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": 182.4,
+      "left": 268.8,
+      "attrs": { "text": "Iluminacion controlada remotamente por MQTT" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:C", "esp:GND.2", "black", [ "v0" ] ],
+    [ "led1:A", "r1:2", "green", [ "v0" ] ],
+    [ "esp:40", "r1:1", "green", [ "h0" ] ],
+    [ "ultrasonic1:VCC", "esp:3V3.1", "red", [ "v0" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v9.6", "h238.8" ] ],
+    [ "ultrasonic1:TRIG", "esp:5", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:6", "green", [ "v0" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "esp:3V3.1", "red", [ "h0" ] ],
+    [ "lcd1:SDA", "esp:36", "green", [ "h-67.2", "v192.2" ] ],
+    [ "lcd1:SCL", "esp:35", "green", [ "h-48", "v0.3" ] ],
+    [ "esp:20", "r2:1", "green", [ "h0" ] ],
+    [ "led2:A", "r2:2", "green", [ "v0" ] ],
+    [ "led2:C", "esp:GND.4", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
