@@ -34,7 +34,7 @@ Base de datos: MySQL.
 Entorno de desarrollo: Visual Studio Code.
 
 
-##  Arquitectura del sistema  
+ # Arquitectura del sistema  
 
 ```mermaid
 flowchart TD
@@ -45,6 +45,7 @@ flowchart TD
     A --> E[LCD 16x2 + LEDs]
 
 # Instalación y ejecución
+
 1. Simulación en Wokwi
 
 Clonar este repositorio.
