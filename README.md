@@ -34,16 +34,6 @@ Base de datos: MySQL.
 Entorno de desarrollo: Visual Studio Code.
 
 
- # Arquitectura del sistema  
-
-```mermaid
-flowchart TD
-    A[ESP32-S3 + Sensor HC-SR04] -->|MQTT: tanque/nivel| B[Broker MQTT test.mosquitto.org]
-    B --> C[Script Python en VS Code]
-    C --> D[Base de datos MySQL]
-    B -->|Comandos: tanque/luz| A
-    A --> E[LCD 16x2 + LEDs]
-
 # Instalación y ejecución
 
 1. Simulación en Wokwi
