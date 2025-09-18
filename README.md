@@ -33,7 +33,10 @@ Base de datos: MySQL.
 
 Entorno de desarrollo: Visual Studio Code.
 
-# Arquitectura del sistema
+
+##  Arquitectura del sistema  
+
+```mermaid
 flowchart TD
     A[ESP32-S3 + Sensor HC-SR04] -->|MQTT: tanque/nivel| B[Broker MQTT test.mosquitto.org]
     B --> C[Script Python en VS Code]
